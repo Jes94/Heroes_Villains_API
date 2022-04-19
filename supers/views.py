@@ -26,7 +26,7 @@ def supers_list(request):
             supers = Super.objects.filter(super_type_id=supertype.id)
             serializer = SuperSerializer(supers, many=True)
 
-            custom_response_dictionary[supertype.type] = {
+            custom_response_dictionary[supertype.type + 's'] = {
                 'Names': serializer.data
             }
         return Response(custom_response_dictionary)
